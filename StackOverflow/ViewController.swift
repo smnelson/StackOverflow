@@ -7,14 +7,40 @@
 //
 
 import UIKit
+import SnapKit
 
 class ViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    
+    let primaryLabel = UILabel(frame: .zero)
+    
+    init() {
+        super.init(nibName: nil, bundle: nil)
+        updateSubviews()
+        setupSubviews()
+        setupConstraints()
     }
-
-
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func updateSubviews() {
+        view.addSubview(primaryLabel)
+    }
+    
+    func setupSubviews() {
+        view.backgroundColor = .white
+        
+        primaryLabel.text = "Emergency Alert Text!"
+        primaryLabel.font = UIFont.systemFont(ofSize: 24.0, weight: .bold)
+        primaryLabel.textColor = .red
+    }
+    
+    func setupConstraints() {
+        primaryLabel.snp.makeConstraints { maker in
+            maker.centerX.equalToSuperview()
+            maker.centerY.equalToSuperview().multipliedBy(0.5)
+        }
+    }
 }
 
