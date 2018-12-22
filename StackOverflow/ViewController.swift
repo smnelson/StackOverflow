@@ -9,12 +9,11 @@
 import UIKit
 import SnapKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
     
     let primaryLabel = UILabel(frame: .zero)
     let userID = UITextField(frame: .zero)
     let passwordInput = UITextField(frame: .zero)
-    //let textFieldWidth = 200
     let submitButton = UIButton(type: .custom)
     let submitButtonColor = UIColor(displayP3Red: 17 / 255.0,
                                     green: 104 / 255.0,
@@ -26,6 +25,7 @@ class ViewController: UIViewController {
         updateSubviews()
         setupSubviews()
         setupConstraints()
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -45,6 +45,9 @@ class ViewController: UIViewController {
         primaryLabel.text = "StackOverflow"
         primaryLabel.font = UIFont.systemFont(ofSize: 24.0, weight: .bold)
         primaryLabel.textColor = .red
+        
+        userID.delegate = self
+        passwordInput.delegate = self
         
         userID.borderStyle = .roundedRect
         passwordInput.borderStyle = .roundedRect
@@ -66,18 +69,13 @@ class ViewController: UIViewController {
         }
         
         userID.snp.makeConstraints { field in
-            //field.centerX.equalToSuperview()
             field.top.equalTo(primaryLabel.snp.bottom).offset(60)
-            //field.width.equalTo(textFieldWidth)
             field.leading.equalTo(view.safeAreaLayoutGuide.snp.leading).offset(90)
             field.trailing.equalTo(view.safeAreaLayoutGuide.snp.trailing).inset(90)
         }
         
         passwordInput.snp.makeConstraints { field in
-            //field.centerX.equalToSuperview()
             field.top.equalTo(userID.snp.bottom).offset(8)
-            //field.centerY.equalToSuperview().multipliedBy(0.8)
-            //field.width.equalTo(textFieldWidth)
             field.leading.equalTo(userID.snp.leading)
             field.trailing.equalTo(userID.snp.trailing)
         }
@@ -91,7 +89,9 @@ class ViewController: UIViewController {
     
     @objc
     func submitButtonPressed() {
-        print("Button pressed")
+        
+        print("UserID: \(userID.text ?? "") Password: \(passwordInput.text ?? "")")
+        
     }
 }
 
