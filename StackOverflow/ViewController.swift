@@ -15,10 +15,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
     let userID = UITextField(frame: .zero)
     let passwordInput = UITextField(frame: .zero)
     let submitButton = UIButton(type: .custom)
-    let submitButtonColor = UIColor(displayP3Red: 17 / 255.0,
+    let darkButtonColor = UIColor(displayP3Red: 17 / 255.0,
                                     green: 104 / 255.0,
                                     blue: 30 / 255.0,
                                     alpha: 1.0)
+    let lightButtonColor = UIColor(displayP3Red: 29 / 255.0,
+                                              green: 165 / 255.0,
+                                              blue: 50 / 255.0,
+                                              alpha: 1.0)
     
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -55,11 +59,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
         userID.placeholder = "Username"
         passwordInput.placeholder = "Password"
         
+        passwordInput.isSecureTextEntry = true
+        
         submitButton.layer.cornerRadius = 15.0
-        submitButton.backgroundColor = submitButtonColor
+        submitButton.backgroundColor = lightButtonColor
         submitButton.setTitle("Submit", for: .normal)
         submitButton.setTitleColor(.white, for: .normal)
-        submitButton.addTarget(self, action: #selector(ViewController.submitButtonPressed), for: UIControl.Event.touchUpInside)
+        submitButton.addTarget(self, action: #selector(ViewController.submitButtonLetGo), for: UIControl.Event.touchUpInside)
     }
     
     func setupConstraints() {
@@ -88,10 +94,18 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     @objc
-    func submitButtonPressed() {
+    func submitButtonLetGo() {
+
+        //submitButton.backgroundColor = lightButtonColor
+        //submitButton.isHighlighted = true
+        
         
         print("UserID: \(userID.text ?? "") Password: \(passwordInput.text ?? "")")
         
     }
+    
+    
+    
+    
 }
 
