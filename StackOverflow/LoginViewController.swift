@@ -9,12 +9,12 @@
 import UIKit
 import SnapKit
 
-class ViewController: UIViewController, UITextFieldDelegate {
+class LoginViewController: UIViewController, UITextFieldDelegate {
     
     let primaryLabel = UILabel(frame: .zero)
     let userID = UITextField(frame: .zero)
     let passwordInput = UITextField(frame: .zero)
-    let submitButton = UIButton(type: .custom)
+    let submitButton = Button()
     let darkButtonColor = UIColor(displayP3Red: 17 / 255.0,
                                     green: 104 / 255.0,
                                     blue: 30 / 255.0,
@@ -62,10 +62,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
         passwordInput.isSecureTextEntry = true
         
         submitButton.layer.cornerRadius = 15.0
-        submitButton.backgroundColor = lightButtonColor
+        submitButton.backgroundColor = darkButtonColor
         submitButton.setTitle("Submit", for: .normal)
         submitButton.setTitleColor(.white, for: .normal)
-        submitButton.addTarget(self, action: #selector(ViewController.submitButtonLetGo), for: UIControl.Event.touchUpInside)
+        submitButton.addTarget(self, action: #selector(LoginViewController.submitButtonLetGo), for: UIControl.Event.touchUpInside)
     }
     
     func setupConstraints() {
