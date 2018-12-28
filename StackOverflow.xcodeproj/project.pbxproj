@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5805952621C6EC660038E3B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5805952521C6EC660038E3B8 /* AppDelegate.swift */; };
-		5805952821C6EC660038E3B8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5805952721C6EC660038E3B8 /* ViewController.swift */; };
+		5805952821C6EC660038E3B8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5805952721C6EC660038E3B8 /* LoginViewController.swift */; };
 		5805952D21C6EC670038E3B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5805952C21C6EC670038E3B8 /* Assets.xcassets */; };
 		5805953021C6EC670038E3B8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5805952E21C6EC670038E3B8 /* LaunchScreen.storyboard */; };
 		5805953B21C6EC670038E3B8 /* StackOverflowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5805953A21C6EC670038E3B8 /* StackOverflowTests.swift */; };
@@ -38,7 +38,7 @@
 		286ACECEA58338FC0FBFDE14 /* Pods-StackOverflow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StackOverflow.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StackOverflow/Pods-StackOverflow.debug.xcconfig"; sourceTree = "<group>"; };
 		5805952221C6EC660038E3B8 /* StackOverflow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StackOverflow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5805952521C6EC660038E3B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5805952721C6EC660038E3B8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5805952721C6EC660038E3B8 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		5805952C21C6EC670038E3B8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5805952F21C6EC670038E3B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5805953121C6EC670038E3B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -105,7 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				5805952521C6EC660038E3B8 /* AppDelegate.swift */,
-				5805952721C6EC660038E3B8 /* ViewController.swift */,
+				5805952721C6EC660038E3B8 /* LoginViewController.swift */,
 				5805952C21C6EC670038E3B8 /* Assets.xcassets */,
 				5805952E21C6EC670038E3B8 /* LaunchScreen.storyboard */,
 				5805953121C6EC670038E3B8 /* Info.plist */,
@@ -305,7 +305,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5805952821C6EC660038E3B8 /* ViewController.swift in Sources */,
+				5805952821C6EC660038E3B8 /* LoginViewController.swift in Sources */,
 				583EF22721D1A53200BCE7D2 /* Button.swift in Sources */,
 				5805952621C6EC660038E3B8 /* AppDelegate.swift in Sources */,
 			);
