@@ -35,6 +35,15 @@ class LoginViewModel: LoginViewModelType, LoginViewModelInputs, LoginViewModelOu
     var loginStatus: LoginStatus?
     
     func submitLogin() {
+        
+    }
+    
+    func printText() {
+        
+        print("UserName: " + userName)
+        print("Password: " + userPassword)
+        
+        
     }
     
     var inputs: LoginViewModelInputs { return self }

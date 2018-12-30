@@ -24,6 +24,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                                               blue: 50 / 255.0,
                                               alpha: 1.0)
     
+    let viewModel = LoginViewModel()
+    
     init() {
         super.init(nibName: nil, bundle: nil)
         updateSubviews()
@@ -66,6 +68,31 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         submitButton.setTitle("Submit", for: .normal)
         submitButton.setTitleColor(.white, for: .normal)
         submitButton.addTarget(self, action: #selector(LoginViewController.submitButtonLetGo), for: UIControl.Event.touchUpInside)
+        
+    }
+    
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        var currentText = ""
+        
+        if textField == userID {
+            currentText = userID.text ?? ""
+        } else if textField == passwordInput {
+            currentText = passwordInput.text ?? ""
+        }
+        
+        guard let stringRange = Range(range, in: currentText) else { return false }
+        let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
+
+        if textField == userID {
+            viewModel.userName = updatedText
+        } else if textField == passwordInput {
+            viewModel.userPassword = updatedText
+        }
+        viewModel.printText()
+
+        return true
     }
     
     func setupConstraints() {
@@ -93,6 +120,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    
     @objc
     func submitButtonLetGo() {
 
@@ -100,7 +128,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         //submitButton.isHighlighted = true
         
         
-        print("UserID: \(userID.text ?? "") Password: \(passwordInput.text ?? "")")
+        //print("UserID: \(userID.text ?? "") Password: \(passwordInput.text ?? "")")
         
     }
     
