@@ -13,9 +13,8 @@ enum LoginStatus {
 }
 
 protocol LoginViewModelInputs {
-    var userName:String { get set }
-    var userPassword:String { get set }
-    
+    func updateUsername(username: String)
+    func updatePassword(password: String)
     func submitLogin()
 }
 
@@ -29,21 +28,29 @@ protocol LoginViewModelType {
 }
 
 class LoginViewModel: LoginViewModelType, LoginViewModelInputs, LoginViewModelOutputs {
+    var userName = "" {
+        didSet {
+            print("UserName: " + userName)
+        }
+    }
     
-    var userName = ""
-    var userPassword = ""
+    var userPassword = "" {
+        didSet {
+            print("Password: " + userPassword)
+        }
+    }
     var loginStatus: LoginStatus?
     
     func submitLogin() {
         
     }
     
-    func printText() {
-        
-        print("UserName: " + userName)
-        print("Password: " + userPassword)
-        
-        
+    func updateUsername(username: String) {
+        userName = username
+    }
+    
+    func updatePassword(password: String) {
+        userPassword = password
     }
     
     var inputs: LoginViewModelInputs { return self }

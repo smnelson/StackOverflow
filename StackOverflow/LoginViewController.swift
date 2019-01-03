@@ -24,7 +24,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                                               blue: 50 / 255.0,
                                               alpha: 1.0)
     
-    let viewModel = LoginViewModel()
+    var viewModel = LoginViewModel()
     
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -74,24 +74,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
-        var currentText = ""
+        guard let stringRange = Range(range, in: textField.text ?? ""),
+              let updatedText = textField.text?.replacingCharacters(in: stringRange,
+                                                                    with: string) else { return false }
         
-        if textField == userID {
-            currentText = userID.text ?? ""
-        } else if textField == passwordInput {
-            currentText = passwordInput.text ?? ""
+        switch textField {
+        case userID: viewModel.inputs.updateUsername(username: updatedText)
+        case passwordInput: viewModel.inputs.updatePassword(password: updatedText)
+        default: break
         }
-        
-        guard let stringRange = Range(range, in: currentText) else { return false }
-        let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
-
-        if textField == userID {
-            viewModel.userName = updatedText
-        } else if textField == passwordInput {
-            viewModel.userPassword = updatedText
-        }
-        viewModel.printText()
-
         return true
     }
     
