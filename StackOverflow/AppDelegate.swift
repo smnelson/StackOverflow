@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        let mainViewController = LoginViewController()
+        let mainViewController = QuestionListViewController()
         
         window?.rootViewController = mainViewController
         window?.makeKeyAndVisible()
