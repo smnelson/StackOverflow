@@ -38,6 +38,7 @@ class QuestionListViewController: UIViewController, UITableViewDataSource, UITab
         view.backgroundColor = .white
         listTableView.delegate = self
         listTableView.dataSource = self
+        listTableView.rowHeight = UITableView.automaticDimension
         listTableView.register(QuestionCell.self, forCellReuseIdentifier: cellIdentifier)
         //listTableView.register(UITableViewCell.CellStyle.subtitle, forCellReuseIdentifier: "questionCell")
         //create custom cell, register custom cell & dequeue custom cell (give me a cell)

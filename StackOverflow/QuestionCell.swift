@@ -35,27 +35,85 @@ class QuestionCell: UITableViewCell {
     }
     
     func updateSubviews() {
-        //contentView.addSubview(questionCount)
-        //contentView.addSubview(answerCount)
+        contentView.addSubview(questionCount)
+        contentView.addSubview(answerCount)
         contentView.addSubview(questionTitle)
-        //contentView.addSubview(questionTags)
-        //contentView.addSubview(modDate)
+        contentView.addSubview(questionTags)
+        contentView.addSubview(modDate)
     }
     
     func setupSubviews() {
         questionCount.text = "5"
+        //questionCount.backgroundColor = .gray
+        questionCount.textAlignment = .center
+        
         answerCount.text = "1"
         answerCount.backgroundColor = .green
+        answerCount.textAlignment = .center
+        
         questionTitle.text = "This is a question?"
+        //questionTitle.backgroundColor = .red
+        
         questionTags.text = "iOS, tag2, tag3"
-        modDate.text = "01/16/2019"
+        questionTags.font = questionTags.font.withSize(13)
+        
+        modDate.text = "Last Mod: 01/16/2019"
+        //modDate.backgroundColor = .blue
+        modDate.font = modDate.font.withSize(11)
+        modDate.textAlignment = .right
+
+        
+        questionTitle.numberOfLines = 0
+        questionCount.numberOfLines = 0
+        questionTags.numberOfLines = 0
+        answerCount.numberOfLines = 0
     }
     
     func setupConstraints() {
-        questionTitle.snp.makeConstraints { maker in
-            maker.centerX.equalToSuperview()
-            maker.centerY.equalToSuperview()
+        
+        questionTitle.translatesAutoresizingMaskIntoConstraints = false
+        questionCount.translatesAutoresizingMaskIntoConstraints = false
+        answerCount.translatesAutoresizingMaskIntoConstraints = false
+        questionTags.translatesAutoresizingMaskIntoConstraints = false
+        modDate.translatesAutoresizingMaskIntoConstraints = false
+        
+        questionCount.snp.makeConstraints { maker in
+            maker.leading.equalToSuperview().offset(30)
+            maker.trailing.equalTo(questionTitle.snp.leading).offset(-20)
+            maker.top.equalToSuperview().offset(10)
         }
+        
+        questionTitle.snp.makeConstraints { maker in
+            //maker.top.equalToSuperview().multipliedBy(10)
+            maker.leading.equalToSuperview().offset(75)
+            maker.trailing.equalToSuperview().offset(-75)
+            maker.top.equalToSuperview().offset(10)
+            //maker.centerX.equalToSuperview()
+            //maker.centerY.equalToSuperview()
+        }
+        
+        answerCount.snp.makeConstraints { maker in
+            maker.top.equalTo(questionCount.snp.bottom).offset(5)
+            maker.leading.equalTo(questionCount.snp.leading)
+            maker.trailing.equalTo(questionCount.snp.trailing)
+            maker.bottom.equalToSuperview().offset(-20)
+        }
+        
+        questionTags.snp.makeConstraints { maker in
+            maker.top.equalTo(questionTitle.snp.bottom).offset(10)
+            maker.leading.equalTo(questionTitle.snp.leading)
+            maker.bottom.equalToSuperview()
+            
+        }
+        
+        modDate.snp.makeConstraints { maker in
+            maker.top.equalTo(questionTitle.snp.bottom).offset(10)
+            maker.leading.equalTo(questionTags.snp.trailing).offset(40)
+            maker.trailing.equalToSuperview().offset(-20)
+            maker.bottom.equalToSuperview()
+        }
+        
+        
     }
     
     
