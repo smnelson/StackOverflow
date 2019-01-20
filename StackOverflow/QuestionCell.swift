@@ -103,6 +103,7 @@ class QuestionCell: UITableViewCell {
             maker.top.equalTo(questionTitle.snp.bottom).offset(10)
             maker.leading.equalTo(questionTitle.snp.leading)
             maker.bottom.equalToSuperview()
+            //maker.trailing.equalTo(modDate.snp.leading)
             
         }
         

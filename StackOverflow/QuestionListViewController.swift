@@ -12,6 +12,7 @@ class QuestionListViewController: UIViewController, UITableViewDataSource, UITab
 
     let listTableView = UITableView(frame: .zero, style: .grouped)
     let cellIdentifier = "questionCell"
+    let questionDetailView = QuestionDetailViewController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,7 +65,6 @@ class QuestionListViewController: UIViewController, UITableViewDataSource, UITab
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        
         if let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) {
             return cell
         } else {
@@ -75,9 +75,11 @@ class QuestionListViewController: UIViewController, UITableViewDataSource, UITab
         
     }
     
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        //cell.textLabel?.text = "Hello"
-        
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        print("you clicked the cell")
+        navigationController?.pushViewController(questionDetailView, animated: true)
     }
+    
 
 }
