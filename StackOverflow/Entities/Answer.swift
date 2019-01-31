@@ -14,10 +14,10 @@ public struct Answer: Codable {
     let owner: String
     let tags: [Tag]
     
-//    enum CodingKeys: String, CodingKey {
-//        case title = "Title"
-//        case description = "Description"
-//        case owner = "Owner"
-//        case tags = "Tags"
-//    }
+    enum CodingKeys: String, CodingKey {
+        case title = "title"
+        case description = "description"
+        case owner = "owner"
+        case tags = "tags"
+    }
 }

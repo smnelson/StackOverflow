@@ -14,21 +14,25 @@ PODS:
   - AFNetworking/Serialization (3.2.1)
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
+  - Fakery (3.4.0)
   - SnapKit (4.2.0)
 
 DEPENDENCIES:
   - AFNetworking
+  - Fakery
   - SnapKit
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - AFNetworking
+    - Fakery
     - SnapKit
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
+  Fakery: 885e894a3e7c392e1da96c6e46a1abe5a0b28686
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
 
-PODFILE CHECKSUM: 0f5e3cb10d12465bbbbd373c741fa7ac6d12b204
+PODFILE CHECKSUM: aa2c9076d2eaf8d4927e5476c9f4384ac384d762
 
 COCOAPODS: 1.6.0.beta.2

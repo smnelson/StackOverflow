@@ -10,6 +10,7 @@
 		4A63725D22026FC600E7D861 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A63725C22026FC600E7D861 /* Question.swift */; };
 		4A63725F22026FD100E7D861 /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A63725E22026FD100E7D861 /* Answer.swift */; };
 		4A63726122026FD900E7D861 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A63726022026FD900E7D861 /* Tag.swift */; };
+		4A6372652202871600E7D861 /* QuestionListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6372642202871600E7D861 /* QuestionListViewModel.swift */; };
 		5805952621C6EC660038E3B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5805952521C6EC660038E3B8 /* AppDelegate.swift */; };
 		5805952821C6EC660038E3B8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5805952721C6EC660038E3B8 /* LoginViewController.swift */; };
 		5805952D21C6EC670038E3B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5805952C21C6EC670038E3B8 /* Assets.xcassets */; };
@@ -46,6 +47,7 @@
 		4A63725C22026FC600E7D861 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		4A63725E22026FD100E7D861 /* Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
 		4A63726022026FD900E7D861 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
+		4A6372642202871600E7D861 /* QuestionListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionListViewModel.swift; sourceTree = "<group>"; };
 		5805952221C6EC660038E3B8 /* StackOverflow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StackOverflow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5805952521C6EC660038E3B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5805952721C6EC660038E3B8 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 				58AD649921E11354000869AB /* QuestionListViewController.swift */,
 				5826D02821F01080007445C2 /* QuestionCell.swift */,
 				5829A4B921F4E943008F6FD2 /* QuestionDetailViewController.swift */,
+				4A6372642202871600E7D861 /* QuestionListViewModel.swift */,
 			);
 			path = StackOverflow;
 			sourceTree = "<group>";
@@ -189,6 +192,7 @@
 				5805951E21C6EC660038E3B8 /* Sources */,
 				5805951F21C6EC660038E3B8 /* Frameworks */,
 				5805952021C6EC660038E3B8 /* Resources */,
+				C89033F06F31908C267F767A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -327,6 +331,28 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		C89033F06F31908C267F767A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-StackOverflow/Pods-StackOverflow-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/Fakery/Faker.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Faker.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-StackOverflow/Pods-StackOverflow-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -340,6 +366,7 @@
 				5805952821C6EC660038E3B8 /* LoginViewController.swift in Sources */,
 				4A63725F22026FD100E7D861 /* Answer.swift in Sources */,
 				583EF22721D1A53200BCE7D2 /* Button.swift in Sources */,
+				4A6372652202871600E7D861 /* QuestionListViewModel.swift in Sources */,
 				5829A4BA21F4E943008F6FD2 /* QuestionDetailViewController.swift in Sources */,
 				5826D02921F01080007445C2 /* QuestionCell.swift in Sources */,
 				5805952621C6EC660038E3B8 /* AppDelegate.swift in Sources */,

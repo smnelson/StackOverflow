@@ -14,6 +14,7 @@ class QuestionListViewController: UIViewController, UITableViewDataSource, UITab
     let cellIdentifier = "questionCell"
     let questionDetailView = QuestionDetailViewController()
 
+    private let viewModel = QuestionListViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -24,23 +25,6 @@ class QuestionListViewController: UIViewController, UITableViewDataSource, UITab
         updateSubviews()
         setupSubviews()
         setupConstraints()
-        doTest()
-    }
-    
-    private func doTest() {
-        let decoder = JSONDecoder()
-        
-        let jsonString = "{\"title\": \"Some Title\", \"description\": \"Some Cool Description\", \"owner\": \"Stacey Nelson\", \"tags\": [{ \"name\": \"Swift\", \"TagURL\": \"https://www.somethinghere.com/ios.png\" }, { \"name\": \"iOS\", \"TagURL\": \"https://www.somethinghere.com/swift.png\" }] }"
-        
-        if let data = jsonString.data(using: .utf8) {
-            do {
-                let answerObject = try decoder.decode(Answer.self, from: data)
-                print(answerObject)
-            } catch {
-                print("Error occurred decoding! \(error)")
-            }
-        }
-        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -75,8 +59,7 @@ class QuestionListViewController: UIViewController, UITableViewDataSource, UITab
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return 4
+        return viewModel.outputs.questions.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -85,10 +68,9 @@ class QuestionListViewController: UIViewController, UITableViewDataSource, UITab
             return cell
         } else {
             let cell = QuestionCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: cellIdentifier)
+            cell.setup(question: viewModel.outputs.questions[indexPath.row])
             return cell
         }
-        
-        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -96,6 +78,4 @@ class QuestionListViewController: UIViewController, UITableViewDataSource, UITab
         print("you clicked the cell")
         navigationController?.pushViewController(questionDetailView, animated: true)
     }
-    
-
 }

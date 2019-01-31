@@ -117,5 +117,8 @@ class QuestionCell: UITableViewCell {
         
     }
     
+    func setup(question: Question) {
+        // Do something in here...
+    }
     
 }
