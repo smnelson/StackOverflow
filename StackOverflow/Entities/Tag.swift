@@ -7,13 +7,14 @@
 //
 
 import Foundation
+import UIKit
 
 public struct Tag: Codable {
     let name: String
-    let icon: UIImage?
+    let iconURL: String?
     
     enum CodingKeys: String, CodingKey {
         case name = "Name"
-        case icon = "TagIcon"
+        case iconURL = "TagURL"
     }
 }
