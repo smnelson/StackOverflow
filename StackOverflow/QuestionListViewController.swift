@@ -24,6 +24,22 @@ class QuestionListViewController: UIViewController, UITableViewDataSource, UITab
         updateSubviews()
         setupSubviews()
         setupConstraints()
+        doTest()
+    }
+    
+    private func doTest() {
+        let decoder = JSONDecoder()
+        
+        let jsonString = "{\"title\": \"Some Title\", \"description\": \"Some Cool Description\", \"owner\": \"Stacey Nelson\", \"tags\": [{ \"name\": \"Swift\", \"TagURL\": \"https://www.somethinghere.com/ios.png\" }, { \"name\": \"iOS\", \"TagURL\": \"https://www.somethinghere.com/swift.png\" }] }"
+        
+        if let data = jsonString.data(using: .utf8) {
+            do {
+                let answerObject = try decoder.decode(Answer.self, from: data)
+                print(answerObject)
+            } catch {
+                print("Error occurred decoding! \(error)")
+            }
+        }
         
     }
     

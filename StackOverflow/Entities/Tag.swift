@@ -14,7 +14,7 @@ public struct Tag: Codable {
     let iconURL: String?
     
     enum CodingKeys: String, CodingKey {
-        case name = "Name"
+        case name = "name"
         case iconURL = "TagURL"
     }
 }
