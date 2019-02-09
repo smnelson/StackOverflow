@@ -54,6 +54,9 @@ class QuestionListViewModel: QuestionListViewModelType, QuestionListViewModelInp
         var questions: [Question] = []
         (0..<faker.number.randomInt(min: 1, max: 25)).forEach { _ in
             questions.append(Question(owner: faker.name.name(),
+                                      score: faker.number.randomInt(min: 1, max: 9),
+                                      title: faker.lorem.sentence(wordsAmount: faker.number.randomInt(min: 2, max: 5)),
+                                      date: faker.lorem.sentence(wordsAmount: faker.number.randomInt(min:1, max: 2)),
                                       answers: fakeAnswers(),
                                       tags: fakeTags()))
         }
@@ -65,6 +68,7 @@ class QuestionListViewModel: QuestionListViewModelType, QuestionListViewModelInp
         (0..<faker.number.randomInt(min: 0, max: 10)).forEach { _ in
             answers.append(Answer(title: faker.lorem.sentence(wordsAmount: faker.number.randomInt(min: 5, max: 10)),
                                   description: faker.lorem.paragraphs(amount: faker.number.randomInt(min: 1, max: 4)),
+                                  score: faker.number.randomInt(min: 1, max: 9),
                                   owner: faker.name.name(),
                                   tags: fakeTags()))
         }
@@ -79,6 +83,7 @@ class QuestionListViewModel: QuestionListViewModelType, QuestionListViewModelInp
         }
         return tags
     }
+    
     
     var inputs: QuestionListViewModelInputs { return self }
     var outputs: QuestionListViewModelOutputs { return self }

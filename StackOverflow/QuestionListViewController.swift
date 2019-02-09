@@ -15,9 +15,9 @@ class QuestionListViewController: UIViewController, UITableViewDataSource, UITab
     let questionDetailView = QuestionDetailViewController()
 
     private let viewModel = QuestionListViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
     
     init() {
@@ -60,6 +60,7 @@ class QuestionListViewController: UIViewController, UITableViewDataSource, UITab
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.outputs.questions.count
+        //return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -69,6 +70,7 @@ class QuestionListViewController: UIViewController, UITableViewDataSource, UITab
         } else {
             let cell = QuestionCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: cellIdentifier)
             cell.setup(question: viewModel.outputs.questions[indexPath.row])
+            print("You are creating a new cell")
             return cell
         }
     }
